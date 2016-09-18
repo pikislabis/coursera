@@ -1,13 +1,14 @@
 (function () {
 'use strict';
 
-angular.module('MsgApp', [])
-.controller('MsgController', MsgController);
+angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckController);
 
-MsgController.$inject = ['$scope'];
-function MsgController($scope) {
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope) {
   $scope.meal = "";
   $scope.message = "";
+  $scope.font_color = "red";
 
   $scope.checkMeal = function () {
     var meals_array = $scope.meal.split(",");
@@ -23,8 +24,10 @@ function MsgController($scope) {
       $scope.message = "Please enter data first";
     }else if(valid_meals > 3){
       $scope.message = "Too much!";
+      $scope.font_color = "green";
     } else{
       $scope.message = "Enjoy!";
+      $scope.font_color = "green";
     }
   };
 }
