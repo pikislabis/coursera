@@ -1,0 +1,20 @@
+<table ng-if="list.items.length > 0" class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in list.items">
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td>
+        <button class="btn btn-danger" ng-click="list.onRemove({index: $index});">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div ng-if='list.showError' class='alert alert-warning'>Nothing found</div>
